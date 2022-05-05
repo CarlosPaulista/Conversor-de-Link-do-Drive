@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <title>Download Direto Google Drive</title>
+
+
+
+  
+</head>
+
+<body class = "wallpaper">
+
+  <h1>Converter Link</h1>
+  <br><br><br><br><br>
+  <small>LINK</small>
+  <br>
+  <input type="text" name="link" id="link" placeholder="link" style="top:50;position: fixed;background-color:white; width: 690px;">
+  <br><br>
+  <small>CONVERTIDO</small>
+  <br>
+  <input type="text" name="saida" id="saida" placeholder="convertido" style="top:50;position: fixed;background-color:white;width: 690px;">
+  <br><br><br>
+
+  <button type="button" onclick = converter()>Conversão 1</button>
+  <button type="button" onclick = converter2()>Conversão 2</button>
+  <h2> Conversão 1 : <h2>
+    <h3>Deve ser usada para arquivos no geral exceto .docx do "WORD"<h3>
+
+      <h2>Conversão 2 :<h2>
+        <h3>Use para WORD(.docx)<h3>
+
+          <script>
+            function converter(){
+              let converte = document.getElementById('link').value;
+
+              converte = converte.replace('file/d' , 'u/1/uc?id='); 
+              converte = converte.replace('/view?usp=sharing' , '&export=download'); 
+              i=0;
+              barra =0;
+              letra = new Array;
+              letra = converte.split('');
+              while (i <= letra.length ){
+                if(letra[i] == '/'){
+                  barra++;
+                  if(barra == 6){
+                    letra[i]= null;
+                  }
+                }
+
+                i++;
+              }
+
+              letra=letra.join('');
+
+              document.getElementById('saida').value = letra;
+            }
+
+            function converter2(){
+
+              let converte = document.getElementById('link').value;
+
+
+              i=0;
+              barra =0;
+              letra = new Array;
+              docssave = new Array;
+              letra = converte.split('');
+              while (barra < 6 ){
+                if(letra[i] == '/'){
+                  barra++;
+
+
+                }
+                docssave[i] = letra[i];
+
+                console.log(docssave);
+
+
+                i++;
+              }
+
+              docssave[i-1]=null;
+              docssave=docssave.join('');
+              docssave = docssave.replace('document/d/' , 'u/1/uc?id='); 
+              docssave = docssave.replace('docs' , 'drive'); 
+
+
+              document.getElementById('saida').value = docssave + '&export=download';
+            }
+  //https://docs.google.com/document/d/1VKTg-5Igedcq0JyAJx710XSD-9Gfd_c_/edit?usp=sharing&ouid=107356442123141386135&rtpof=true&sd=true
+
+  //https://drive.google.com/u/1/uc?id=1yQbJAug7Z5QJ3HOlAhHs6tCQVjn4sBDHB7teeSa2ne0&export=download
+
+  
+</script>
+
+
+
+</body>
+
+</html>
