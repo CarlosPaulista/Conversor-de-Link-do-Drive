@@ -1,0 +1,39 @@
+ h1 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: darkblue;
+        font-size: 30px;
+        position: fixed;
+        margin-top: 5vh;
+        left: 85vh;
+    }
+
+    .wallpaper {
+     
+        background-image: url('https://img.freepik.com/vetores-gratis/fundo-branco-abstrato_23-2148810353.jpg?w=2000');
+ 
+    }
+  
+h2{
+    color: darkblue;
+
+}
+h3{
+    color: black;
+}
+small{
+    color: black;
+}
+    @keyframes degrade {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+
+    }
